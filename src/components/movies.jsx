@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import MovieTable from "./movieTable";
 import Pagination from "./common/pagination";
 import ListGroup from "./common/listGroup";
 import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utility/paginate.js";
-import NavBar from "./navBar";
 
 class Movies extends React.Component {
   state = {
@@ -105,6 +105,11 @@ class Movies extends React.Component {
             />
           </div>
           <div className="col-9 mt-4">
+            <div className="my-3">
+              <Link className="btn btn-primary" to="new" role="button">
+                New Movies
+              </Link>
+            </div>
             <h3>There are {totalCount} video in the table.</h3>
             <MovieTable
               moviesOnPage={moviesOnPage}
